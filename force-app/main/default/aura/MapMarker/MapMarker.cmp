@@ -1,0 +1,21 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<!-- Map attributes -->
+    <aura:attribute name="mapMarkers" type="Object"/>
+    <aura:attribute name="zoomLevel" type="Integer" />    
+
+    
+        <!-- the map component -->
+                        <aura:if isTrue="{!v.mapMarkers.length > 0}" >
+                            <lightning:map
+                                           mapMarkers="{!v.mapMarkers}"
+                                           center="{! v.center }"
+                                           zoomLevel="{! v.zoomLevel }"
+                                           markersTitle="{! v.markersTitle }"
+                                           showFooter="{ !v.showFooter }" >
+                            </lightning:map> 
+                        </aura:if>
+
+    
+    <lightning:button label="Click to pin!" onclick="{!c.grabAddress}"
+                                                      variant="brand" class="buttonClass"/>
+</aura:component>
